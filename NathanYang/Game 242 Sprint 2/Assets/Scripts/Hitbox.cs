@@ -13,11 +13,13 @@ public class Hitbox : MonoBehaviour {
     /// </summary>
 
     public MeleeAttack melee;
+    public FireDamage fire;
     //public Projectile projectile; //used to detect values from colliding.other
     Health health; //stores Health component
     private int meleeDamage;
+    private int fDamage;
     //private int projDamage; //stores the damage value from collider.other
-    public int bumpDamage = 5;
+    //public int bumpDamage = 5;
     //public string projectileTag = "Projectile";
     public string bodyTag = "Player";
     
@@ -55,11 +57,11 @@ public class Hitbox : MonoBehaviour {
     }
 
     //Applies set damage when objects tagged player collide
-    public void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag(bodyTag))
-        {
-            health.TakeDamage(bumpDamage);
-        }
-    }
+    //public void OnCollisionEnter(Collision other)
+    //{
+    //    if (other.gameObject.CompareTag(bodyTag))
+    //    {
+    //        health.TakeDamage(bumpDamage);
+    //    }
+    //}
 }

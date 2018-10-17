@@ -17,8 +17,8 @@ public class Health : MonoBehaviour {
 
     public Text healthBar = null;
 
-    ParticleSystem deathParticle; 
-    SpriteRenderer sprite;
+    ParticleSystem deathParticle;
+    Mesh meshName;
     public int flashTime;
     public GameObject drop; //drops an object on death
 
@@ -26,7 +26,7 @@ public class Health : MonoBehaviour {
     {
         curHealth = maxHealth;
         deathParticle = GetComponent<ParticleSystem>();
-        sprite = GetComponent<SpriteRenderer > ();
+        meshName = GetComponent<Mesh>();
     }
 
     public void Update()
@@ -64,7 +64,7 @@ public class Health : MonoBehaviour {
 
     public void Die()
     {
-        sprite.enabled = false;
+        //meshName.enabled = false;
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
@@ -89,12 +89,12 @@ public class Health : MonoBehaviour {
         for (var n = 0; n < flashTime; n++)
         {
             canTakeDamage = false;
-            sprite.enabled = true;
+            //meshName.enabled = true;
             yield return new WaitForSeconds(0.1f);
-            sprite.enabled = false;
+            //meshName.enabled = false;
             yield return new WaitForSeconds(0.1f);
         }
-        sprite.enabled = true;
+        //meshName.enabled = true;
         canTakeDamage = true;
     }
 }
