@@ -314,6 +314,7 @@
     <Compile Include="Assets\GameTimer.cs" />
     <Compile Include="Assets\LookAtCamera.cs" />
     <Compile Include="Assets\ManagePlayerStats.cs" />
+    <Compile Include="Assets\ManualIncreaseStats.cs" />
     <Compile Include="Assets\PickupItem.cs" />
     <Compile Include="Assets\PickupType.cs" />
     <Compile Include="Assets\Scripts\handleMovement.cs" />
