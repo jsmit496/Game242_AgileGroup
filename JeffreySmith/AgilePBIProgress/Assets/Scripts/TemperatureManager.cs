@@ -7,7 +7,6 @@ public class TemperatureManager : MonoBehaviour
 {
     public int currentTemperature;
     public Transform temperatureManager;
-    public Text temperatureText;
 
     public GameObject[] temperatureGauges;
 
@@ -38,7 +37,6 @@ public class TemperatureManager : MonoBehaviour
         {
             currentTemperature = baseTemperature;
         }
-        temperatureText.text = "Temperature: " + currentTemperature + "°F";
     }
 
     public void SetBaseTemperature()

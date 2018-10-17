@@ -14,6 +14,7 @@ public class handleMovement : MonoBehaviour
     public GameObject playerCamera;
     public Transform minimumHeightPoint;
     public Transform maximumHeightPoint;
+    public Transform staminaBar;
 
     public Vector3 defaultCameraPosition;
     private bool canSeePlayer;
@@ -93,6 +94,7 @@ public class handleMovement : MonoBehaviour
         }
 
         transform.position += moveDirection * Time.deltaTime * speed;
+        staminaBar.position += moveDirection * Time.deltaTime * speed;
     }
 
     public void HandleCamera()

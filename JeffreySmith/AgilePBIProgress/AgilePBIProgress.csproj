@@ -308,10 +308,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ChangeDisplay.cs" />
+    <Compile Include="Assets\CheckInterior.cs" />
     <Compile Include="Assets\ExposureSettings.cs" />
+    <Compile Include="Assets\FollowGameObject.cs" />
+    <Compile Include="Assets\GameTimer.cs" />
+    <Compile Include="Assets\LookAtCamera.cs" />
+    <Compile Include="Assets\ManagePlayerStats.cs" />
+    <Compile Include="Assets\PickupItem.cs" />
+    <Compile Include="Assets\PickupType.cs" />
     <Compile Include="Assets\Scripts\handleMovement.cs" />
     <Compile Include="Assets\Scripts\TemperatureManager.cs" />
     <Compile Include="Assets\Scripts\TemperatureSetter.cs" />
+    <Compile Include="Assets\Scripts\TestScripts\ObjectInteraction1.cs" />
+    <Compile Include="Assets\SetCanvasToObject.cs" />
+    <Compile Include="Assets\WeatherSetter.cs" />
+    <Compile Include="Assets\ZoomCamera.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
