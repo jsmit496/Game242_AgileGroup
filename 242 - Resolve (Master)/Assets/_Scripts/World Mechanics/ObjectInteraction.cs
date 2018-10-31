@@ -27,16 +27,22 @@ public class ObjectInteraction : MonoBehaviour {
         }
     }
 
-    public void OnTriggerStay()
+    public void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Interacted");
-            playerInteract = true;
-        }
-        else
-        {
-            playerInteract = false;
+            InteractText.SetActive(true);
+            InteractText.GetComponent<Text>().text = "Left Click to Interact";
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Debug.Log("Interacted");
+                playerInteract = true;
+                DestroyObject();
+            }
+            else
+            {
+                playerInteract = false;
+            }
         }
     }
 
@@ -47,12 +53,11 @@ public class ObjectInteraction : MonoBehaviour {
         playerPresent = false;
     }
 
-    public void Update()
+    public void DestroyObject()
     {
-        if (playerInteract == true && gameObject.tag == "Interactable")
+        if (designatedObject == true)
         {
             Destroy(designatedObject);
-            playerInteract = true;
             InteractText.SetActive(false);
         }
     }

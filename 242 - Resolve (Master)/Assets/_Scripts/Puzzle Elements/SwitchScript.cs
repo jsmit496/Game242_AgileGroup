@@ -27,12 +27,15 @@ public class SwitchScript : MonoBehaviour {
         }
     }
 
-    public void OnTriggerStay()
+    public void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (other.gameObject.tag == "Player")
         {
-            switchPressed = true;
-            Debug.Log("Switch Pressed");
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                switchPressed = true;
+                Debug.Log("Switch Pressed");
+            }
         }
     }
 

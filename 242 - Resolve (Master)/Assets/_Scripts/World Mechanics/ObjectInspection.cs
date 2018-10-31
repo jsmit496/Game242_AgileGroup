@@ -12,25 +12,32 @@ public class ObjectInspection : MonoBehaviour {
     public GameObject InspectText;
 
     // True/False if player is present near the object
-    public bool playerPresent = false;
+    public bool playerView = false;
+
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        playerView = true;
+        if (other.gameObject.tag == "PlayerView")
         {
             InspectText.SetActive(true);
             InspectText.GetComponent<Text>().text = "Press E to Inspect";
-
+            enabled = true;
         }
     }
 
-    public void OnTriggerStay()
+    public void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        playerView = true;
+        if (other.gameObject.tag == "PlayerView")
         {
-            Debug.Log("Inspected");
-            inspectionText.SetActive(true);
-            inspectionText.GetComponent<Text>().text = "Just a object to inspect.";
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("Inspected");
+                inspectionText.SetActive(true);
+                inspectionText.GetComponent<Text>().text = "Just a object to inspect.";
+                enabled = true;
+            }
         }
     }
 
@@ -39,6 +46,7 @@ public class ObjectInspection : MonoBehaviour {
         InspectText.SetActive(false);
         inspectionText.SetActive(false);
         InspectText.GetComponent<Text>().text = "";
-        playerPresent = false;
+        playerView = false;
+        enabled = false;
     }
 }
