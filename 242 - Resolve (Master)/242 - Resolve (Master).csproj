@@ -321,6 +321,7 @@
   <ItemGroup>
     <Compile Include="Assets\_Scripts\Entity\Health.cs" />
     <Compile Include="Assets\_Scripts\Entity\Hitbox.cs" />
+    <Compile Include="Assets\_Scripts\MainMenuControls\MainMenuCameraHController.cs" />
     <Compile Include="Assets\_Scripts\Misc Test Scripts\handleMovement.cs" />
     <Compile Include="Assets\_Scripts\Misc Test Scripts\MeleeAttack.cs" />
     <Compile Include="Assets\_Scripts\Misc Test Scripts\ObjectInteraction1.cs" />

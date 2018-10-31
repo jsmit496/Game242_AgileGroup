@@ -21,7 +21,7 @@ public class MainTimeScript : MonoBehaviour
     [SerializeField]
     private bool _bUseWeather = true;
 
-    /// This is where the user sets how long a full 24 hour day should be in seconds.
+    /// This is where the user sets how long a full 24 _fCurrentHour day should be in seconds.
     /// *Use \link GetSet_bUseWeather \endlink if you want to change it during runtime.
     [SerializeField]
     private float _fSecondInAFullDay = 60.0f;
@@ -47,36 +47,36 @@ public class MainTimeScript : MonoBehaviour
 
     private float _fStartingHour;
 
-    /// This is the INT we use so the designer can set at which hour they want SUNRISE to start\n
+    /// This is the INT we use so the designer can set at which _fCurrentHour they want SUNRISE to start\n
     /// *Use \link GetSet_iSunriseStart \endlink if you want to access or change this from another script or during runtime.
     [SerializeField]
     private int _iSunriseStart;
 
-    /// This is the INT we use so the designer can set at which hour they want DAY to start\n
+    /// This is the INT we use so the designer can set at which _fCurrentHour they want DAY to start\n
     /// *Use \link GetSet_iDayStart \endlink if you want to access or change this from another script or during runtime.
     [SerializeField]
     private int _iDayStart;
 
-    /// This is the INT we use so the designer can set at which hour they want SUNSET to start\n
+    /// This is the INT we use so the designer can set at which _fCurrentHour they want SUNSET to start\n
     /// *Use \link GetSet_iSunsetStart \endlink if you want to access or change this from another script or during runtime.
     [SerializeField]
     private int _iSunsetStart;
 
-    /// This is the INT we use so the designer can set at which hour they want NIGHT to start\n
+    /// This is the INT we use so the designer can set at which _fCurrentHour they want NIGHT to start\n
     /// *Use \link GetSet_iNightStart \endlink if you want to access or change this from another script or during runtime.
     [SerializeField]
     private int _iNightStart;
 
-    /// We use this varible to re-count the choosen hour into %
+    /// We use this varible to re-count the choosen _fCurrentHour into %
     private float _fStartingSunrise;
 
-    /// We use this varible to re-count the choosen hour into %
+    /// We use this varible to re-count the choosen _fCurrentHour into %
     private float _fStartingDay;
 
-    /// We use this varible to re-count the choosen hour into %
+    /// We use this varible to re-count the choosen _fCurrentHour into %
     private float _fStartingSunset;
 
-    /// We use this varible to re-count the choosen hour into %
+    /// We use this varible to re-count the choosen _fCurrentHour into %
     private float _fStartingNight;
 
     /// I re-count \link Get_fCurrentTimeOfDay \endlink to hours and have \link Get_fCurrentHour \endlink to show it for when we debug the time of day. 

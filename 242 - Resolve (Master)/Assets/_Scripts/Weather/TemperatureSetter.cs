@@ -14,7 +14,7 @@ public class TemperatureSetter : MonoBehaviour
 
     private void Start()
     {
-        gameTimer = GameObject.FindGameObjectWithTag("Player").GetComponent<GameTimer>();
+        gameTimer = GameObject.FindGameObjectWithTag("TimeController").GetComponent<GameTimer>();
     }
 
     private void Update()
