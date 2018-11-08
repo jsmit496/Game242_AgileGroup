@@ -4,19 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
-  - Attackable
-  - Switch
-  - MeleeRange
-  - Interactable
-  - Pushable
-  - Inspectable
-  - PlayerView
-=======
   - Pickup
   - Interior
-  - TimeController
->>>>>>> 35a6ba56cb97d5633a2dc1af1469baa1c7be18d0
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -26,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
+  - Unwalkable
   - 
   - 
   - 
