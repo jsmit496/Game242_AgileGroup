@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
     float movementSpeed;        //Speed for movement
     public float baseMovementSpeed;
     public float climbingSpeed;
@@ -20,13 +21,43 @@ public class PlayerController : MonoBehaviour {
 
     public Transform wayPoint;
 
+    float staminaMax = 100;
+    float staminaCurrent;                           //Stamina
+    float walkCost = 0.5f;
+    float runCost = 10f;
+    float staminaRegen = 10f;
+    bool isMoving = false;
+    bool isRunning = false;
+
     void Start()
     {
         rbody = GetComponent<Rigidbody>();
         mainCamera = FindObjectOfType<Camera>();
+        staminaCurrent = staminaMax;                //Stamina
     }
 
     void Update()
+    {
+        Debug.Log(staminaCurrent);
+        if (staminaCurrent >= staminaMax)
+            staminaCurrent = staminaMax;
+        if (staminaCurrent < 0) staminaCurrent = 0;
+
+        MovementManagement();
+        if (isRunning == true)
+        {
+            StaminaDrain();
+        }
+        else StaminaRefill();
+
+        if (aiControl == true)
+        {
+            float step = climbingSpeed * Time.deltaTime;                                            // The step size is equal to climbing speed times frame time.
+            transform.position = Vector3.MoveTowards(transform.position, wayPoint.position, step);  //Move position closer to waypoint
+        }
+    }
+
+    void MovementManagement()
     {
         if (movement == true)
         {
@@ -49,19 +80,28 @@ public class PlayerController : MonoBehaviour {
                 #region Movement
                 if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
                 {
+                    isMoving = true;
                     transform.position += Vector3.left * movementSpeed * Time.deltaTime;
                 }
                 if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
                 {
+                    isMoving = true;
                     transform.position += Vector3.right * movementSpeed * Time.deltaTime;
                 }
                 if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
                 {
+                    isMoving = true;
                     transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
                 }
                 if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
                 {
+                    isMoving = true;
                     transform.position += Vector3.back * movementSpeed * Time.deltaTime;
+                }
+                if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.D)
+                    && !Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.S))
+                {
+                    isMoving = false;
                 }
                 #endregion
             }
@@ -88,12 +128,19 @@ public class PlayerController : MonoBehaviour {
                 #endregion
             }
         }
+    }
 
-        if (aiControl == true)
-        {
-            float step = climbingSpeed * Time.deltaTime;                                            // The step size is equal to climbing speed times frame time.
-            transform.position = Vector3.MoveTowards(transform.position, wayPoint.position, step);  //Move position closer to waypoint
-        }
+    void StaminaDrain()
+    {
+        if (isRunning == true)
+            staminaCurrent -= Time.deltaTime * runCost;
+        //else
+        //    staminaCurrent -= Time.deltaTime * walkCost;
+    }
+
+    void StaminaRefill()
+    {
+        staminaCurrent += Time.deltaTime * staminaRegen;
     }
 
 
@@ -101,11 +148,21 @@ public class PlayerController : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            movementSpeed = baseMovementSpeed * 2;
+            if (staminaCurrent >= 1)
+            {
+                movementSpeed = baseMovementSpeed * 2;
+                isRunning = true;
+            }
+            else if (staminaCurrent <= 0)
+            {
+                movementSpeed = baseMovementSpeed;
+            }
+
         }
         else
         {
             movementSpeed = baseMovementSpeed;
+            isRunning = false;
         }
     }
 
