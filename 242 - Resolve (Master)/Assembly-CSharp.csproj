@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{F02EB91F-8D3D-448A-1DBD-81385CCE5664}</ProjectGuid>
+    <ProjectGuid>{40AC4138-9915-066C-4F57-90F172017551}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -61,8 +61,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Scripts\AI\Grid.cs" />
+    <Compile Include="Assets\_Scripts\AI\InteriorController.cs" />
+    <Compile Include="Assets\_Scripts\AI\InteriorFloorController.cs" />
+    <Compile Include="Assets\_Scripts\AI\MainMenuController.cs" />
+    <Compile Include="Assets\_Scripts\AI\Node.cs" />
+    <Compile Include="Assets\_Scripts\AI\Pathfinding.cs" />
+    <Compile Include="Assets\_Scripts\AI\TestMoveTarget.cs" />
+    <Compile Include="Assets\_Scripts\AI\TestQuestMarkerCompass.cs" />
     <Compile Include="Assets\_Scripts\Entity\Health.cs" />
     <Compile Include="Assets\_Scripts\Entity\Hitbox.cs" />
+    <Compile Include="Assets\_Scripts\MainMenuControls\MainMenuCameraHController.cs" />
     <Compile Include="Assets\_Scripts\Misc Test Scripts\handleMovement.cs" />
     <Compile Include="Assets\_Scripts\Misc Test Scripts\MeleeAttack.cs" />
     <Compile Include="Assets\_Scripts\Misc Test Scripts\ObjectInteraction1.cs" />
@@ -82,6 +91,7 @@
     <Compile Include="Assets\_Scripts\UI\FollowGameObject.cs" />
     <Compile Include="Assets\_Scripts\UI\LookAtCamera.cs" />
     <Compile Include="Assets\_Scripts\UI\SetCanvasToObject.cs" />
+    <Compile Include="Assets\_Scripts\UI\TimeColorSwap.cs" />
     <Compile Include="Assets\_Scripts\UI\ZoomCamera.cs" />
     <Compile Include="Assets\_Scripts\Weather\ExposureSettings.cs" />
     <Compile Include="Assets\_Scripts\Weather\TemperatureManager.cs" />
@@ -95,6 +105,7 @@
     <Compile Include="Assets\_Scripts\World Mechanics\ExitWaypoint.cs" />
     <Compile Include="Assets\_Scripts\World Mechanics\FireDamage.cs" />
     <Compile Include="Assets\_Scripts\World Mechanics\GameTimer.cs" />
+    <Compile Include="Assets\_Scripts\World Mechanics\invAddItem.cs" />
     <Compile Include="Assets\_Scripts\World Mechanics\MainDebugScript.cs" />
     <Compile Include="Assets\_Scripts\World Mechanics\MainTimeScript.cs" />
     <Compile Include="Assets\_Scripts\World Mechanics\ObjectInspection.cs" />
@@ -737,16 +748,16 @@
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <None Include="Assets\Devdog\InventoryPro\Demos\Assets\UI\Shaders\SpriteShader.shader" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/x64hi/School/GAME/Unity Projects/242 - Resolve (Master)/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/x64hi/School/GAME/Unity Projects/242 - Resolve (LocalMaster)/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/x64hi/School/GAME/Unity Projects/242 - Resolve (Master)/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/x64hi/School/GAME/Unity Projects/242 - Resolve (LocalMaster)/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/x64hi/School/GAME/Unity Projects/242 - Resolve (Master)/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/x64hi/School/GAME/Unity Projects/242 - Resolve (LocalMaster)/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/x64hi/School/GAME/Unity Projects/242 - Resolve (Master)/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/x64hi/School/GAME/Unity Projects/242 - Resolve (LocalMaster)/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -979,7 +990,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{1F5DBBBF-7268-A744-7BF8-CFFE971ED253}</Project>
+      <Project>{558D8164-1FBE-EEA0-47DA-5248D040E4D9}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
   </ItemGroup>

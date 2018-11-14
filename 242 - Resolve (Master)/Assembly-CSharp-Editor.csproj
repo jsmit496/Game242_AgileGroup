@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{CF990AE6-2EDC-BCBD-B2B0-23B0B4975106}</ProjectGuid>
+    <ProjectGuid>{FF6803E5-B524-ADD1-4F25-83DEB9A056B1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -239,16 +239,16 @@
     <Compile Include="Assets\Devdog\InventoryPro\Scripts\Other\Editor\Utilities\InventoryEditorUtility.cs" />
     <Compile Include="Assets\Devdog\InventoryPro\Scripts\UI\SlotUI\Editor\InventoryUIItemWrapperEditor.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/x64hi/School/GAME/Unity Projects/242 - Resolve (Master)/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/x64hi/School/GAME/Unity Projects/242 - Resolve (LocalMaster)/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/x64hi/School/GAME/Unity Projects/242 - Resolve (Master)/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/x64hi/School/GAME/Unity Projects/242 - Resolve (LocalMaster)/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/x64hi/School/GAME/Unity Projects/242 - Resolve (Master)/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/x64hi/School/GAME/Unity Projects/242 - Resolve (LocalMaster)/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/x64hi/School/GAME/Unity Projects/242 - Resolve (Master)/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/x64hi/School/GAME/Unity Projects/242 - Resolve (LocalMaster)/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -556,15 +556,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{1F5DBBBF-7268-A744-7BF8-CFFE971ED253}</Project>
+      <Project>{558D8164-1FBE-EEA0-47DA-5248D040E4D9}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{F02EB91F-8D3D-448A-1DBD-81385CCE5664}</Project>
+      <Project>{40AC4138-9915-066C-4F57-90F172017551}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
     <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
-      <Project>{021D2307-2BF9-8204-F786-E7C6E524B47B}</Project>
+      <Project>{251E604D-2508-283A-E523-E3C811EC0D36}</Project>
       <Name>Assembly-CSharp-Editor-firstpass</Name>
     </ProjectReference>
   </ItemGroup>

@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Pickup
   - Interior
-  - Obstacle
+  - TimeController
   layers:
   - Default
   - TransparentFX
@@ -16,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - Unwalkable
+  - 
   - 
   - 
   - 
