@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ManagePlayerStats : MonoBehaviour
 {
     public float decreaseSpeed = 0.5f; //use fractions (1 will be max)
-    public float refillSpeed = 1f;
     public float maxHunger = 100;
     public float maxThirst = 100;
     public float maxFatigue = 100;
@@ -44,11 +43,6 @@ public class ManagePlayerStats : MonoBehaviour
         ManageDecreaseOverTime();
         HandleBarDisplays();
         exposure = tempManager.currentTemperature; //This will change when adding clothing
-        if (currentStamina < maxStamina)
-        {
-            currentStamina += ((currentStamina / maxStamina) + (refillSpeed / 2)) * Time.deltaTime * refillSpeed;
-        }
-        HandleOverflow();
 	}
 
     public void ManageDecreaseOverTime()
@@ -66,7 +60,6 @@ public class ManagePlayerStats : MonoBehaviour
         exposureBar.value = exposure / maxExposure;
         healthBarLeft.fillAmount = currentHealth / maxHealth;
         healthBarRight.fillAmount = currentHealth / maxHealth;
-        staminaBar.fillAmount = currentStamina / maxStamina;
     }
 
     public void HandleOverflow()
@@ -75,41 +68,17 @@ public class ManagePlayerStats : MonoBehaviour
         {
             currentHunger = maxHunger;
         }
-        else if (currentHunger < 0)
-        {
-            currentHunger = 0;
-        }
         if (currentThirst > maxThirst)
         {
             currentThirst = maxThirst;
-        }
-        else if (currentThirst < 0)
-        {
-            currentThirst = 0;
         }
         if (currentFatigue > maxFatigue)
         {
             currentFatigue = maxFatigue;
         }
-        else if (currentFatigue < 0)
-        {
-            currentFatigue = 0;
-        }
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
-        }
-        else if (currentHealth < 0)
-        {
-            currentHealth = 0;
-        }
-        if (currentStamina > maxStamina)
-        {
-            currentStamina = maxStamina;
-        }
-        else if (currentStamina < 0)
-        {
-            currentStamina = 0;
         }
     }
 }

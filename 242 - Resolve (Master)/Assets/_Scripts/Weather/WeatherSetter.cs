@@ -24,7 +24,7 @@ public class WeatherSetter : MonoBehaviour
 	void Start ()
     {
         previousWeather = weather;
-        gameTimer = GameObject.FindGameObjectWithTag("TimeController").GetComponent<GameTimer>();
+        gameTimer = GameObject.FindGameObjectWithTag("Player").GetComponent<GameTimer>();
 	}
 	
 	// Update is called once per frame
