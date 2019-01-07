@@ -22,7 +22,7 @@ public class SwitchScript : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             SwitchText.SetActive(true);
-            SwitchText.GetComponent<Text>().text = "Left Click to activate Switch";
+            SwitchText.GetComponent<Text>().text = "Press E activate Switch";
             playerPresent = true;
         }
     }
@@ -31,7 +31,7 @@ public class SwitchScript : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 switchPressed = true;
                 Debug.Log("Switch Pressed");

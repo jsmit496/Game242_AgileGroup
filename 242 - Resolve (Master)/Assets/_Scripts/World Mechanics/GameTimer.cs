@@ -5,33 +5,44 @@ using UnityEngine.UI;
 
 public class GameTimer : MonoBehaviour
 {
+    public int timeScale = 45; //this will change how fast time passes
     public Text clockText;
 
-    [HideInInspector]
-    public int hour = 0;
-    [HideInInspector]
-    public int minute = 0;
-
-    private MainTimeScript mainTimeScript;
+    public double second, minute, hour;
 
     // Use this for initialization
     void Start ()
     {
-        mainTimeScript = GameObject.FindGameObjectWithTag("TimeController").GetComponent<MainTimeScript>();
+		
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
         CalculateTime();
-        hour = (int)mainTimeScript._fCurrentHour;
-        minute = (int)mainTimeScript._fCurrentMinute;
-    }
+	}
 
     public void CalculateTime()
     {
+        second += Time.deltaTime * timeScale;
+
+        if (second >= 60)
+        {
+            minute++;
+            second = 0;
+        }
+        else if (minute >= 60)
+        {
+            hour++;
+            minute = 0;
+        }
+        else if (hour >= 24)
+        {
+            hour = 0;
+        }
+
         //How to display Time
-        if (hour >= 10)
+        if (hour >= 10 && minute >= 10)
         {
             if (minute >= 10)
             {
@@ -41,7 +52,7 @@ public class GameTimer : MonoBehaviour
             {
                 clockText.text = string.Format("{0}:0{1}", hour, minute);
             }
-            else
+            else if (minute == 0)
             {
                 clockText.text = string.Format("{0}:00", hour);
             }
@@ -56,7 +67,7 @@ public class GameTimer : MonoBehaviour
             {
                 clockText.text = string.Format("0{0}:0{1}", hour, minute);
             }
-            else
+            else if (minute == 0)
             {
                 clockText.text = string.Format("0{0}:00", hour);
             }
@@ -71,7 +82,7 @@ public class GameTimer : MonoBehaviour
             {
                 clockText.text = string.Format("00:0{1}", hour, minute);
             }
-            else
+            else if (minute == 0)
             {
                 clockText.text = string.Format("00:00");
             }

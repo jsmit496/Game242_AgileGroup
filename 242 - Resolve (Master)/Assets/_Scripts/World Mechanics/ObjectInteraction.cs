@@ -22,7 +22,7 @@ public class ObjectInteraction : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             InteractText.SetActive(true);
-            InteractText.GetComponent<Text>().text = "Left Click to Interact";
+            InteractText.GetComponent<Text>().text = "Press E to Interact";
             playerPresent = true;
         }
     }
@@ -31,9 +31,10 @@ public class ObjectInteraction : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
+            playerPresent = true;
             InteractText.SetActive(true);
-            InteractText.GetComponent<Text>().text = "Left Click to Interact";
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            InteractText.GetComponent<Text>().text = "Press E to Interact";
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("Interacted");
                 playerInteract = true;

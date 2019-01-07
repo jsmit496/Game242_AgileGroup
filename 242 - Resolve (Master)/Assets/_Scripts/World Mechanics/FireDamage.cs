@@ -12,36 +12,65 @@ public class FireDamage : MonoBehaviour {
 
     public bool onFire = false;
 
+    public bool playerPresent = false;
+
+    public bool objectNear = false;
+
     public int fireDamage;
+
+    public float timer;
+
 
     public void OnTriggerEnter(Collider other)
     {
-        
-        if (onFire == false)
+        if (onFire == true)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse1))
-            {
-                onFire = true;
-            }
+            FireDamage fs;
+            fs = other.GetComponent<FireDamage>();
+            fs.onFire = true;
         }
     }
 
     public void OnTriggerStay(Collider other)
     {
-        if (onFire == false)
+        if (other.gameObject.tag == "Player")
         {
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+            playerPresent = true;
+            if (onFire == false)
             {
-                onFire = true;
+                if (Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    StartCoroutine(FireDamageOverTime());
+                }
             }
         }
     }
 
+    public void OnTriggerExit(Collider other)
+    {
+        playerPresent = false;
+    }
+
     public void Update()
+    {
+        //Fire();
+        StartCoroutine(FireDamageOverTime());
+    }
+
+    public void Fire()
     {
         if (onFire == true)
         {
             this.fireDuration -= Time.deltaTime;
+            health.TakeDamage(fireDamage);
+        }
+    }
+
+    IEnumerator FireDamageOverTime()
+    {
+        while (onFire == true)
+        {
+            yield return new WaitForSeconds(1.5f);
             health.TakeDamage(fireDamage);
         }
     }
